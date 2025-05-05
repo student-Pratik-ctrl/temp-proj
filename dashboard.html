@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <p id="user_welcome"></p>
+    <p id="user_email"></p>
+    <button onClick="logout()">Log Out</button>
+
+    <script>
+        function getDetails(){
+            document.querySelector("#user_welcome").innerHTML = "Welcome " + localStorage.getItem("name");
+            document.querySelector("#user_email").innerHTML = "Email : " + localStorage.getItem("email");
+        }
+
+        function logout(){
+            localStorage.removeItem("name");
+            localStorage.removeItem("email");
+            window.location.href = "login.html";
+        }
+        window.onload = getDetails();
+    </script>
+</body>
+</html>
